@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="theme-toggle" title="Toggle Dark/Light Mode">
+                <i class="fas fa-moon"></i>
+            </div>
+            <button id="location-btn" title="Use Current Location">
+                <i class="fas fa-location-arrow"></i>
+            </button>
+            <button id="unit-toggle" title="Toggle °C/°F" style="margin-left:10px;background:var(--card-bg);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;">
+                <span id="unit-label">°C</span>
+            </button>
+        </div>
+        <div class="favorites-recent" style="display:flex;justify-content:space-between;align-items:center;margin:10px 0 20px 0;gap:20px;">
+            <div>
+                <label style="font-weight:bold;">Favorites:</label>
+                <select id="favorites-list" style="min-width:120px;"></select>
+                <button id="add-favorite" title="Add to Favorites" style="margin-left:5px;">★</button>
+            </div>
+            <div>
+                <label style="font-weight:bold;">Recent:</label>
+                <select id="recent-list" style="min-width:120px;"></select>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+            <button id="search-btn" title="Search Weather">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="weather-container">
+            <div class="current-weather">
+                <div class="location">
+                    <h2 id="city-name">--</h2>
+                    <p id="date">--</p>
+                    <p id="city-time" style="font-size:1.1em;color:#555;">--:--</p>
+                </div>
+                <div class="weather-info">
+                    <div class="temperature">
+                        <h1 id="temp">--°C</h1>
+                        <p id="description">--</p>
+                    </div>
+                    <div class="weather-icon">
+                        <i id="weather-icon" class="fas fa-cloud"></i>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="detail-item" title="Wind Speed">
+                        <i class="fas fa-wind"></i>
+                        <span id="wind">-- km/h</span>
+                    </div>
+                    <div class="detail-item" title="Humidity">
+                        <i class="fas fa-tint"></i>
+                        <span id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item" title="Pressure">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <span id="pressure">-- hPa</span>
+                    </div>
+                    <div class="detail-item" title="Air Quality Index">
+                        <i class="fas fa-smog"></i>
+                        <span id="aqi">--</span>
+                    </div>
+                    <div class="detail-item" title="UV Index">
+                        <i class="fas fa-sun"></i>
+                        <span id="uvi">--</span>
+                    </div>
+                    <div class="detail-item" title="Sunrise">
+                        <i class="fas fa-arrow-up"></i>
+                        <span id="sunrise">--:--</span>
+                    </div>
+                    <div class="detail-item" title="Sunset">
+                        <i class="fas fa-arrow-down"></i>
+                        <span id="sunset">--:--</span>
+                    </div>
+                </div>
+            <div id="alerts-container" style="margin-top:20px;"></div>
+            </div>
+
+            <div class="forecast-container">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-cards" id="forecast-cards">
+                    <!-- Forecast cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="loading-spinner">
+                <i class="fas fa-cloud-sun fa-spin"></i>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
